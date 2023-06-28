@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-moz-selection {
+    /* Code for Firefox */
+    background: #FE881E;
+}
+
+::selection {
+    background: #FE881E;
+}
+
+.geologica {
+    font-family: 'Geologica', sans-serif;
+}
+
+.rubik {
+    font-family: 'Rubik', sans-serif;
+}
+
+.photo-model::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    height: 1px;
+    background: white;
+    width: 40px;
+    left: 100%;
+    top: calc(50% - 2px);
+}
+
+.main-bg {
+    background-image: url('./assets/squiggly.svg');
+    background-size: cover;
+}
+
+.toggle {
+    cursor: pointer;
+    display: inline-block;
+    height: fit-content;
+}
+
+.toggle-switch {
+    display: inline-block;
+    background: white;
+    border-radius: 16px;
+    width: 60px;
+    height: 34px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+    border: 1px solid #c5c5c5
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+    content: "";
+}
+
+.toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #ff973c 0%, #ff973c 100%);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+}
+
+.toggle-checkbox:checked+.toggle-switch {
+    background: white;
+}
+
+.toggle-checkbox:checked+.toggle-switch:before {
+    left: 30px;
+}
+
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+.contact-bg {
+    background-image: url('./assets/squiggly-contact.svg');
+    background-size: cover;
+}
