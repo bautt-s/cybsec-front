@@ -28,9 +28,9 @@ const FooterSection: React.FC = () => {
                 <strong className="text-[#353234] group-hover:text-[#ff973c] transition-all duration-700">Sec</strong>
             </span>
 
-            <div className="grid grid-cols-5 mx-auto mt-[40px] text-black">
+            <div className="grid grid-cols-2 lg:grid-cols-5 mx-auto lg:mt-[40px] text-black px-[40px] lg:px-0">
                 {categories.map((c, index) =>
-                    <div key={index}>
+                    <div key={index} className='w-fit mt-[40px] lg:mt-0'>
                         <h3 className="geologica text-xl font-[500]">{c.title}</h3>
 
                         <ul>
@@ -41,8 +41,8 @@ const FooterSection: React.FC = () => {
                         </ul>
                     </div>)}
 
-                <div className='flex flex-col'>
-                    <h3 className="geologica text-xl font-[500]">Contact Us</h3>
+                <div className='flex flex-col mt-[40px] lg:mt-0'>
+                    <h4 className="geologica text-xl font-[500]">Contact Us</h4>
 
                     <div className='flex flex-row items-center mt-[15px]'>
                         <HiOutlineLocationMarker className='text-2xl text-[#353234]' />
@@ -63,13 +63,13 @@ const FooterSection: React.FC = () => {
                 </div>
             </div>
 
-            <div className='bg-[#343FE9] w-full flex flex-row mt-[60px] py-[15px] px-[300px] contact-bg'>
-                <span className='geologica text-gray-300 text-sm'>© 2023 All Rights Reserved</span>
+            <div className='bg-[#343FE9] w-full flex flex-row mt-[60px] py-[15px] px-[10px] lg:px-[300px] contact-bg'>
+                <span className='geologica text-gray-300 text-xs md:text-sm'>© 2023 <br className='flex md:hidden' />All Rights Reserved</span>
 
-                <ul className='ml-auto gap-x-[40px] flex flex-row text-white geologica text-sm'>
-                    <li className='cursor-pointer'>Privacy Policy</li>
-                    <li className='cursor-pointer'>Terms of Use</li>
-                    <li className='cursor-pointer'>Safes and Refunds</li>
+                <ul className='ml-auto gap-x-[15px] md:gap-x-[40px] flex flex-row text-white geologica text-xs md:text-sm'>
+                    <li className='cursor-pointer max-w-[5ch] lg:max-w-none'>Privacy Policy</li>
+                    <li className='cursor-pointer max-w-[7ch] lg:max-w-none'>Terms of Use</li>
+                    <li className='cursor-pointer max-w-[7ch] lg:max-w-none'>Safes and Refunds</li>
                     <li className='cursor-pointer'>Legal</li>
                     <li className='cursor-pointer'>Site Map</li>
                 </ul>

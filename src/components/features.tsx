@@ -29,35 +29,36 @@ const FeaturesSection: React.FC = () => {
     ]
 
     return (
-        <div className='pl-[240px] pb-[120px] w-fit'>
+        <div className='px-[40px] 2xl:px-[240px] pb-[80px] lg:pb-[120px] w-fit mt-[60px] mx-auto xl:mx-0'>
 
             <div className="flex flex-col">
                 <div className='flex flex-row items-center text-[#ff973c]'>
-                    <AiOutlineMinus className='text-5xl' />
-                    <span className="text-lg font-[700] tracking-wide">WHAT DOES IT INCLUDE</span>
+                    <AiOutlineMinus className='text-5xl lg:flex hidden' />
+                    <span className="text-lg font-[700] tracking-wide mx-auto lg:mx-0">WHAT DOES IT INCLUDE</span>
                 </div>
 
-                <h1 className="text-5xl geologica font-[700] max-w-[15ch] leading-[55px] mt-[10px] text-[#353234]">
+                <h1 className="text-5xl geologica font-[700] max-w-[15ch] leading-[55px] mt-[10px] text-[#353234] text-center lg:text-left mx-auto lg:mx-0">
                     What does cyber insurance cover?
                 </h1>
             </div>
 
-            <div className='flex flex-row gap-x-[100px] mt-[60px] z-50'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 xl:flex xl:flex-row gap-y-[20px] sm:gap-x-[20px] xl:gap-x-[100px] mt-[60px] z-50'>
                 {features.map((f, index) =>
-                    <div className='flex flex-col border-[2px] hover:border-[#343FE9] group px-[25px] py-[35px] rounded-xl transition-all duration-200 bg-white' key={index}>
+                    <div className='flex flex-col border-[2px] hover:border-[#343FE9] group px-[25px] py-[35px] rounded-xl 
+                    transition-all duration-200 bg-white cursor-pointer' key={index}>
                         <div className='rounded-2xl w-fit p-[15px] group-hover:scale-105 bg-[#343FE9] transition-all duration-200'>
                             {f.icon}
                         </div>
 
                         <span className='mt-[20px] font-[500] text-lg'>{f.title}</span>
 
-                        <p className='max-w-[22ch] mt-[5px]'>
+                        <p className='md:max-w-[22ch] mt-[5px]'>
                             {f.description}
                         </p>
                     </div>)}
             </div>
 
-            <div className='border-t-[2px] border-dashed w-full h-[1px] relative bottom-[120px] -z-10'></div>
+            <div className='border-t-[2px] border-dashed w-full h-[1px] relative bottom-[120px] -z-10 xl:flex hidden'></div>
         </div>
     )
 }

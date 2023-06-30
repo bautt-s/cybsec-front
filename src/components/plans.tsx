@@ -25,19 +25,19 @@ const PlansSection: React.FC = () => {
     }]
 
     return (
-        <div className="bg-[#F4F9FC] pb-[100px] pt-[80px] px-[240px]">
-            <div className="flex flex-col">
+        <div className="bg-[#F4F9FC] pb-[100px] pt-[80px]">
+            <div className="flex flex-col px-[40px] 2xl:px-[240px]">
                 <div className='flex flex-row items-center text-[#ff973c]'>
-                    <AiOutlineMinus className='text-5xl' />
-                    <span className="text-lg font-[700] tracking-wide">PRICE PLANS</span>
+                    <AiOutlineMinus className='text-5xl lg:flex hidden' />
+                    <span className="text-lg font-[700] tracking-wide mx-auto lg:mx-0">PRICE PLANS</span>
                 </div>
 
-                <div className='flex flex-row'>
-                    <h1 className="text-5xl geologica font-[700] mt-[25px] text-[#353234]">
+                <div className='flex flex-col lg:flex-row items-center lg:items-start'>
+                    <h1 className="text-5xl geologica font-[700] mt-[25px] text-[#353234] text-center md:text-left">
                         Who's cyber insurance for?
                     </h1>
 
-                    <div className='flex flex-row ml-auto items-center h-fit gap-[15px]'>
+                    <div className='flex flex-row lg:ml-auto items-center h-fit gap-[15px] mt-[40px] lg:mt-0'>
                         <span className={planState.monthly ? 'text-[#353234] font-[500]' : 'text-gray-400 font-[500]'}>Monthly</span>
 
                         <label className="toggle">
@@ -50,18 +50,19 @@ const PlansSection: React.FC = () => {
                 </div>
             </div>
 
-            <div className='flex flex-row mt-[60px] w-full mb-[40px]'>
+            <div className='flex flex-col lg:flex-row mt-[60px] w-full mb-[40px] px-[40px] 2xl:px-[220px]'>
                 {plansInfo.map((p, index) =>
                     <div key={index} onClick={() => setPlanState({ ...planState, indexSelected: index })} className={`rounded-[25px] pt-[40px] border cursor-pointer duration-300   
-                    pb-[30px] px-[60px] ${planState.indexSelected === index ? 'bg-[#343FE9] shadow-2xl' : 'bg-white shadow-lg'} ${index !== 0 && 'ml-auto flex flex-col'}`}>
+                    pb-[30px] px-[60px] lg:px-[20px] xl:px-[40px] ${planState.indexSelected === index ? 'bg-[#343FE9] shadow-2xl' : 'bg-white shadow-lg'} ${index !== 0 && 'lg:ml-auto flex flex-col mt-[60px] lg:mt-0'}
+                    ${planState.indexSelected !== index && 'hover:bg-[#f8f8f8]'}`}>
                         <span className={planState.indexSelected === index ? 'text-white font-[500]' : 'text-[#ff973c] font-[500]'}>0{index + 1}</span>
 
                         <div className={planState.indexSelected === index ? 'text-white' : 'text-[#353234]'}>
-                            <h3 className='text-3xl font-[700] geologica mt-[20px]'>{p.title}</h3>
-                            <p className='mt-[25px] max-w-[23ch] text-xl'>{p.description}</p>
+                            <h4 className='text-3xl font-[700] geologica mt-[20px]'>{p.title}</h4>
+                            <p className='mt-[25px] lg:max-w-[23ch] text-xl lg:text-lg xl:text-xl'>{p.description}</p>
                         </div>
 
-                        <div className='flex flex-row mt-[50px] text-lg '>
+                        <div className='flex flex-row mt-[50px] text-lg'>
                             <strong className={planState.indexSelected === index ? 'text-white' : 'text-[#353234]'}>{planState.monthly ? p.monthly : p.yearly}$</strong>
                             <span className={`${planState.indexSelected === index ? 'text-gray-300' : 'text-gray-500'}`}>{planState.monthly ? '/monthly' : '/yearly'}</span>
                         </div>
@@ -73,7 +74,9 @@ const PlansSection: React.FC = () => {
                     </div>)}
             </div>
 
-            <span className='text-[#353234] geologica text-xl font-[500] cursor-pointer underline decoration-[#ff973c]'>See all price plans</span>
+            <span className='text-[#353234] geologica text-xl font-[500] cursor-pointer underline decoration-[#ff973c] pl-[40px] 2xl:pl-[220px] relative top-[40px]'>
+                See all price plans
+            </span>
         </div>
     )
 }

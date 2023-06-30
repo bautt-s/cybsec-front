@@ -42,28 +42,28 @@ const TestimonialsSection: React.FC = () => {
     }]
 
     return (
-        <div className='pb-[80px] pt-[80px] pl-[240px] flex flex-row'>
+        <div className='pb-[80px] pt-[80px] px-[40px] lg:pr-0 2xl:pl-[240px] flex flex-col lg:flex-row'>
             <div className='flex flex-col'>
                 <div className='flex flex-row items-center text-[#ff973c]'>
-                    <AiOutlineMinus className='text-5xl' />
-                    <span className="text-lg font-[700] tracking-wide">TESTIMONIALS</span>
+                    <AiOutlineMinus className='text-5xl lg:flex hidden' />
+                    <span className="text-lg font-[700] tracking-wide mx-auto lg:mx-0">TESTIMONIALS</span>
                 </div>
 
-                <h1 className="text-5xl geologica font-[700] mt-[25px] text-[#353234]">
+                <h1 className="text-5xl geologica font-[700] mt-[25px] text-[#353234] text-center lg:text-left">
                     What people say
                 </h1>
 
-                <p className='text-xl max-w-[65ch] text-left mt-[40px] leading-[40px]'>
+                <p className='text-lg lg:text-xl max-w-[65ch] mt-[40px] leading-[35px] lg:leading-[40px] text-center lg:text-left mx-auto lg:mx-0 md:max-w-[50ch] lg:pr-[20px]'>
                     {testimonials[selectedTestimonial].description}
                 </p>
 
-                <span className='text-xl mt-[60px] underline decoration-[#ff973c] decoration-[3px] geologica font-[500] select-none'
+                <span className='text-xl mt-[40px] lg:mt-[60px] underline decoration-[#ff973c] decoration-[3px] geologica font-[500] select-none mx-auto lg:mx-0'
                 >- {testimonials[selectedTestimonial].name}
                 </span>
             </div>
 
-            <div className='ml-auto text-xl text-white relative'>
-                <div className='flex flex-row absolute top-[50px] right-[550px]'>
+            <div className='lg:ml-auto text-xl text-white relative'>
+                <div className='flex flex-row 2xl:absolute top-[60px] lg:top-[80px] 2xl:top-[50px] lg:right-[50px] 2xl:right-[550px] justify-center lg:justify-normal relative'>
                     <div onClick={() => handleTestimonial(false)} className={`p-[15px] rounded-l-full bg-[#ff973c] 
                     ${selectedTestimonial === 0 ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'} transition-all duration-200`}>
                         <BsChevronLeft />
@@ -75,7 +75,8 @@ const TestimonialsSection: React.FC = () => {
                     </div>
                 </div>
 
-                <img src={testimonials[selectedTestimonial].img} className='rounded-l-2xl object-cover w-[600px] h-[600px] select-none duration-300 transition-all' />
+                <img src={testimonials[selectedTestimonial].img} className='rounded-2xl lg:rounded-r-[0] lg:rounded-l-2xl object-cover 
+                w-[600px] h-[600px] select-none duration-300 transition-all mt-[40px] lg:mt-0 mx-auto lg:mx-0' alt='client testimonial' />
             </div>
         </div>
     )
