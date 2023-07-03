@@ -1,10 +1,13 @@
 import { BsArrowDown } from 'react-icons/bs'
 import { AiOutlineMinus } from 'react-icons/ai'
 import { HiMenu } from 'react-icons/hi'
+import { useState } from 'react'
 
 const heroPhoto = require('../assets/hero-photo.jpg')
 
 const HeroSection: React.FC = () => {
+    const [openMenu, setOpenMenu] = useState(false)
+
     return (
         <div className="flex flex-col text-white h-screen bg-black">
             <nav className="absolute top-0 left-0 w-full flex flex-row px-[20px] lg:px-[40px] xl:px-[80px] pt-[40px] items-center">
@@ -32,7 +35,7 @@ const HeroSection: React.FC = () => {
                         </span>
                     </button>
 
-                    <HiMenu className='text-4xl text-white ml-[20px] cursor-pointer md:hidden' />
+                    <HiMenu onClick={() => setOpenMenu(!openMenu)} className='text-4xl text-white ml-[20px] cursor-pointer md:hidden z-50' />
                 </div>
             </nav>
 
@@ -90,6 +93,16 @@ const HeroSection: React.FC = () => {
 
                 <img src={heroPhoto} alt='cyber insurance expert'
                     className="w-[400px] 2xl:w-[1000px] h-screen xl:h-full ml-auto shadow-2xl 2xl:rounded-bl-xl object-cover hidden lg:flex" />
+            </div>
+
+            <div className={`md:hidden fixed top-0 right-0 bg-[#2a1d7eee] z-40 ${openMenu ? 'w-screen h-screen' : 'w-screen h-0'} transition-all duration-300`}>
+                <ul className={`${openMenu ? 'flex' : 'hidden'} flex-col ml-auto text-white mt-[180px] w-fit mx-auto text-xl gap-y-[25px] items-center`}>
+                    <li className="w-fit cursor-pointer relative after:absolute after:bg-white after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Destinations</li>
+                    <li className="w-fit cursor-pointer relative after:absolute after:bg-white after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">About us</li>
+                    <li className="w-fit cursor-pointer relative after:absolute after:bg-white after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Gallery</li>
+                    <li className="w-fit cursor-pointer relative after:absolute after:bg-white after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Testimonials</li>
+                    <li className="w-fit cursor-pointer relative after:absolute after:bg-white after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Careers</li>
+                </ul>
             </div>
         </div>
     )
